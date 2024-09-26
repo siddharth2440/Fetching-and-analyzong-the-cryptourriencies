@@ -64,7 +64,7 @@ def get_top_5_crypto_currencies_byMarket_cap(orderCategory,currency,count_of_coi
 def avg_price_of_top_50_currencies():
     req_coins = requests.get(f"{base_url}coins/markets?vs_currency=usd&per_page=2")
     data = json.loads(req_coins.text)
-    print(data)
+    # print(data)
     total_price = 0
     for coin in data:
         total_price += round(coin['current_price'],3)
@@ -110,9 +110,9 @@ if __name__ == "__main__":
                 temp = 0;
                 
                 for item in orderCategories:
-                    print(f"Press {temp+1} to {item}")
+                    print(f"Enter : {item}")
                 
-                get_category = str(input("Enter the Option as shown above : "))
+                get_category = input("Enter the Option as shown above : ")
                 if get_category in orderCategories:
                     get_top_5_crypto_currencies_byMarket_cap(get_category,"usd",countOfCryptoCurrencies)
                     break
